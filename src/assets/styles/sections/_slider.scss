@@ -1,0 +1,145 @@
+.slider {
+  $block-name: &; // #{$block-name}__element
+
+  height: 100vh;
+  min-height: 810px;
+  display: flex;
+  flex-direction: column;
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color-default-black, 0.3);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    &-active {
+      display: block!important;
+    }
+  }
+
+  &__box {
+    padding-top: 150px;
+    text-align: center;
+    height: 58%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-default-white;
+    z-index: 1;
+  }
+
+  &__title {
+    margin-bottom: 48px;
+
+    span {
+      color: $color-transparent;
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: $color-dark;
+    }
+  }
+
+  &__body {
+    height: 42%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+
+  &__item {
+    width: calc(100%/4);
+    font-family: $font-gilroy;
+    font-size: 20px;
+    line-height: 25px;
+    color: $color-default-white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba($color-default-white, 0.3);
+    border-top: 1px solid rgba($color-default-white, 0.3);
+    position: relative;
+
+    &:not(:first-child) {
+      border-left: 1px solid rgba($color-default-white, 0.3);
+    }
+
+    &-red {
+      @include sliderItemColor($color-red, $block-name);
+    }
+
+    &-green {
+      @include sliderItemColor($color-green, $block-name);
+    }
+
+    &-blue {
+      @include sliderItemColor($color-blue, $block-name);
+    }
+
+    &-purple {
+      @include sliderItemColor($color-purple, $block-name);
+    }
+
+    &-body {
+      position: absolute;
+      top: -90vh;
+      bottom: -1px;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+      display: flex;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity $tf-300;
+    }
+
+    &-title {
+      font-family: $font-gilroy;
+      color: $color-default-white;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &-descr {
+      color: $color-default-white;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &-active {
+      #{$block-name}__item-body {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .arrow {
+
+      }
+    }
+  }
+
+  &__arrow {
+    margin: 22.5px auto;
+  }
+}

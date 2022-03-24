@@ -14,3 +14,13 @@
   background-position: $position;
   background-size: $size;
 }
+
+@mixin sliderItemColor($color, $block-name) {
+  &:hover {
+    background-color: $color;
+  }
+
+  #{$block-name}__item-body {
+    background-color: $color;
+  }
+}

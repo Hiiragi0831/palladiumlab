@@ -1,0 +1,41 @@
+/* src/assets/styles/base/_variables.scss  */
+
+// Colors
+// ---------------------------------
+
+$color-default-black:               #000000;
+$color-default-white:               #ffffff;
+$color-transparent:                 rgba(255, 255, 255, 0);
+$color-dark:                        #222222;
+$color-grey:                        #EBEBEB;
+$color-primary:                     #C6876D;
+$color-red:                         #EB5757;
+$color-green:                       #219653;
+$color-blue:                        #2F80ED;
+$color-purple:                      #9B51E0;
+
+
+// Viewports
+// ---------------------------------
+$vp-320:                            319.98px;
+$vp-576:                            575.98px;
+$vp-768:                            767.98px;
+$vp-992:                            991.98px;
+$vp-1200:                           1199.98px;
+$vp-1400:                           1399.98px;
+$vp-1700:                           1699.98px;
+
+//Animation
+// ---------------------------------
+$tf-default:                        ease 150ms;
+$tf-300:                            ease 300ms;
+$tf-500:                            ease 500ms;
+$tf-800:                            ease 800ms;
+$tf-1000:                           ease 1000ms;
+$tf-line:                           ease-in-out 800ms;
+
+//Fonts
+// ---------------------------------
+$font-gilroy:                       'Gilroy', sans-serif;
+$font-montserrat:                   'Montserrat', sans-serif;
+

@@ -1,5 +1,7 @@
 //- Master layout
 
+include ../mixins/arrow-right
+
 doctype html
 html(lang='en')
   head
@@ -9,10 +11,8 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
 
-    meta(name='msapplication-TileColor', content='#0E0E0E')
-    meta(name='theme-color', content='#0E0E0E')
-
-    //- SEO
+    meta(name='msapplication-TileColor', content='#C6876D')
+    meta(name='theme-color', content='#C6876D')
 
     //- Basic Seo
     block basicSeo
@@ -33,18 +33,11 @@ html(lang='en')
     meta(property='og:image', content='')
     meta(property='og:type', content='website')
 
-
     //- Favicons
     link(rel='apple-touch-icon', sizes='180x180', href=require('images/favicons/apple-touch-icon.png'))
     link(rel='icon', type='image/png', sizes='32x32', href=require('images/favicons/favicon-32x32.png'))
     link(rel='icon', type='image/png', sizes='16x16', href=require('images/favicons/favicon-16x16.png'))
     link(rel='shortcut icon', href=require('images/favicons/favicon.ico'))
-
-    //- Preload fonts
-    link(type='font/woff', href=require('source/assets/fonts/Quicksand-Bold.woff'), rel='preload', as='font', crossorigin)
-    link(type='font/woff', href=require('source/assets/fonts/Quicksand-Medium.woff'), rel='preload', as='font', crossorigin)
-    link(type='font/woff', href=require('source/assets/fonts/Quicksand-Regular.woff'), rel='preload', as='font', crossorigin)
-    link(type='font/woff', href=require('source/assets/fonts/Quicksand-Light.woff'), rel='preload', as='font', crossorigin)
 
     //- Title
     block title
@@ -68,11 +61,3 @@ html(lang='en')
 
     //- block scripts
     block scripts
-
-    // Global site tag (gtag.js) - Google Analytics
-    script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-56237358-2')
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-56237358-2');

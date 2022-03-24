@@ -1,31 +1,39 @@
 /* src/assets/styles/base/_fonts.scss  */
 
 /*
-  Quicksand
+  Gilroy
 */
-
 @font-face {
-  font-family: 'Quicksand';
-  font-weight: 700;
-  src: url('@~fonts/Quicksand-Bold.woff');
+  font-family: 'Gilroy';
+  src: local('Gilroy Extrabold'), local('Gilroy-Extrabold'),
+  url('@~fonts/gilroy/Gilroy-Extrabold.woff2') format('woff2'),
+  url('@~fonts/gilroy/Gilroy-Extrabold.woff') format('woff'),
+  url('@~fonts/gilroy/Gilroy-Extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/*
+  Montserrat
+*/
+@font-face {
+  font-family: 'Montserrat';
+  src: url('@~fonts/montserrat/Montserrat-Regular.eot');
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+  url('@~fonts/montserrat/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+  url('@~fonts/montserrat/Montserrat-Regular.woff') format('woff'),
+  url('@~fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Quicksand';
+  font-family: 'Montserrat';
+  src: url('@~fonts/montserrat/Montserrat-Medium.eot');
+  src: local('Montserrat Medium'), local('Montserrat-Medium'),
+  url('@~fonts/montserrat/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+  url('@~fonts/montserrat/Montserrat-Medium.woff') format('woff'),
+  url('@~fonts/montserrat/Montserrat-Medium.ttf') format('truetype');
   font-weight: 500;
-  src: url('@~fonts/Quicksand-Medium.woff');
+  font-style: normal;
 }
-
-@font-face {
-  font-family: 'Quicksand';
-  font-weight: 400;
-  src: url('@~fonts/Quicksand-Regular.woff');
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  font-weight: 300;
-  src: url('@~fonts/Quicksand-Light.woff');
-}
-
-$quicksand: 'Quicksand', sans-serif;

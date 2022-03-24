@@ -1,17 +1,24 @@
 /* src/assets/styles/components/_button.scss  */
+.btn {
+  padding: 10px 48px;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: $font-gilroy;
+  position: relative;
+  display: inline-block;
 
-.clean-button {
-  border: none;
-  background: none;
-}
+  &:before {
+    position: absolute;
+    content: " ";
+    width: 25px;
+    height: 1px;
+    background-color: $color-dark;
+    left: -12.5px;
+    top: 50%;
+  }
 
-.button {
-  @extend .clean-button;
-  font-family: $quicksand;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 5px;
-  color: white;
-  padding: 14px 40px;
-  background: $lightseagreen;
+  &__black {
+    color: $color-dark;
+    border: 1px solid rgba($color-dark, 0.3);
+  }
 }

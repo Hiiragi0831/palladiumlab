@@ -8,10 +8,49 @@ block manifestBrowserconfigFiles
   meta(name='msapplication-config' content='../browserconfig.xml')
 
 block content
-
-  // Menu
-  +menu('home')
-
-  //- Index page
-  section.page.home__page
-    h1.page__title # Index page
+  section.slider
+    .slider__bg
+      img.slider__bg-active(src=require('images/slider/slide_00.jpg') data-img="block-0")
+      img(src=require('images/slider/slide_01.jpg') data-img="block-1")
+      img(src=require('images/slider/slide_02.jpg') data-img="block-2")
+      img(src=require('images/slider/slide_03.jpg') data-img="block-3")
+      img(src=require('images/slider/slide_04.jpg') data-img="block-4")
+    .slider__box
+      .slider__title(data-title="block-4")
+        p.h1
+          | Ремонт#{' '}
+          span и
+          | #{' '}дизайн
+        p.h1
+          span в Москве и Московской области
+      a.btn.btn__black(href="#") Оставить заявку
+    .slider__body
+      .slider__items
+        a.slider__item.slider__item-red.slider__item-active(href="#" data-item="block-1") Услуги по ремонту
+          .slider__item-body
+            p.slider__item-title Услуги по ремонту
+            p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
+            +arrow-right
+        a.slider__item.slider__item-green(href="#" data-item="block-2") Виды работ
+          .slider__item-body
+            p.slider__item-title Виды работ
+            p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
+            +arrow-right
+        a.slider__item.slider__item-blue(href="#" data-item="block-3") Дизайн интерьера
+          .slider__item-body
+            p.slider__item-title Дизайн интерьера
+            p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
+            +arrow-right
+        a.slider__item.slider__item-purple(href="#" data-item="block-4") Ремонт помещений
+          .slider__item-body
+            p.slider__item-title Ремонт помещений
+            p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
+            +arrow-right
+      a.slider__arrow(href="#")
+        svg(width='40' height='41' viewBox='0 0 40 41' fill='none' xmlns='http://www.w3.org/2000/svg')
+          circle(cx='20' cy='20.5' r='19.5' stroke='white' stroke-opacity='0.3')
+          g(clip-path='url(#clip0_1_277)')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M19.25 13H20.75V21H26.2507L19.25 28.0007V13Z' fill='white')
+          defs
+            clippath#clip0_1_277
+              rect(width='15' height='15' fill='white' transform='translate(12.5 13)')

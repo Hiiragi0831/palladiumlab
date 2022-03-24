@@ -4,38 +4,81 @@
   box-sizing: border-box;
   outline: none;
 }
-html,
-body {
-  height: 100%;
-}
-body {
-  @include isFlex(center, center);
-  font-family: $quicksand;
-  background: $darkslategray;
-  color: white;
+
+html, body{
+  position: relative;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
-h1, h2, h3, h4, h5, h6 {
+
+body {
+  font-family: $font-montserrat;
+  background: $color-default-white;
+  font-weight: normal;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-style: none;
+}
+
+section {
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0;
+  font-family: $font-gilroy;
+  font-style: normal;
+  color: $color-dark;
+  font-weight: 800;
 }
-a {
-  text-decoration: none;
-  &:visited {
-    color: white;
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: $color-dark;
+  font-family: $font-montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
-p {
-  margin: 0;
+
+a {
+  text-decoration: none;
 }
+
 ul {
   margin: 0;
   padding: 0;
 }
+
 li {
   list-style: none;
 }
 
-.image {
-  width: 50px;
+.h1, h1 {
+  font-size: 64px;
+  line-height: 72px;
+}
+
+.h2, h2 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.h3, h3 {
+  font-size: 14px;
+  line-height: 20px;
 }
