@@ -24,3 +24,72 @@
     background-color: $color;
   }
 }
+
+@mixin btnHover($color) {
+  span {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: 12.5px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    border: 1px solid $color;
+    transition: clip-path 180ms ease, left 900ms ease;
+
+    &:nth-child(1) {
+      clip-path: polygon(50% 50%, 0 50%, 0 50%);
+      transition-delay: 720ms, 720ms;
+    }
+
+    &:nth-child(2) {
+      clip-path: polygon(50% 50%, 0 0, 0 0);
+      transition-delay: 540ms, 720ms;
+    }
+
+    &:nth-child(3) {
+      clip-path: polygon(50% 50%, 100% 0, 100% 0);
+      transition-delay: 360ms, 720ms;
+    }
+
+    &:nth-child(4) {
+      clip-path: polygon(50% 50%, 100% 100%, 100% 100%);
+      transition-delay: 180ms, 720ms;
+    }
+
+    &:nth-child(5) {
+      clip-path: polygon(50% 50%, 0% 100%, 0% 100%);
+      transition-delay: 0ms, 720ms;
+    }
+  }
+
+  &:hover {
+    span {
+      left: -1px;
+      &:nth-child(1) {
+        clip-path: polygon(50% 50%, 0 50%, 0 0);
+        transition-delay: 0ms, 720ms;
+      }
+
+      &:nth-child(2) {
+        clip-path: polygon(50% 50%, 0 0, 100% 0);
+        transition-delay: 180ms, 720ms;
+      }
+
+      &:nth-child(3) {
+        clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+        transition-delay: 360ms, 720ms;
+      }
+
+      &:nth-child(4) {
+        clip-path: polygon(50% 50%, 100% 100%, 0% 100%);
+        transition-delay: 540ms, 720ms;
+      }
+
+      &:nth-child(5) {
+        clip-path: polygon(50% 50%, 0% 100%, 0% 50%);
+        transition-delay: 720ms, 720ms;
+      }
+    }
+  }
+}

@@ -20,5 +20,6 @@
   &__black {
     color: $color-dark;
     border: 1px solid rgba($color-dark, 0.3);
+    @include btnHover($color-dark);
   }
 }
