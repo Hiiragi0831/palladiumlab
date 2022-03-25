@@ -1,0 +1,125 @@
+.works {
+  $block-name: &; // #{$block-name}__element
+
+  padding: 136px 0;
+  display: flex;
+  flex-direction: column;
+
+  &__examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 270px);
+    gap: 10px 10px;
+    grid-template-areas:
+        "example1 example1 example2"
+        "example3 example4 example2"
+        "example5 example6 example7"
+        "example5 example8 example8";
+    margin-bottom: 64px;
+  }
+
+  &__item {
+    position: relative;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      #{$block-name}__img {
+        &:before {
+          background: linear-gradient(0deg, rgba($color-default-black, 0.5) 0%, rgba($color-default-black, 0) 100%), rgba($color-default-black, 0.6);
+        }
+      }
+
+      #{$block-name}__body {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        grid-area: example#{$i};
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: background $tf-300;
+      background: linear-gradient(0deg, rgba($color-default-black, 0.5) 0%, rgba($color-default-black, 0) 100%), rgba($color-default-black, 0.1);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-family: $font-gilroy;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    color: $color-default-white;
+    z-index: 1;
+  }
+
+  &__body {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity $tf-300;
+
+    &-item {
+      margin-right: 32px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      p {
+        font-size: 10px;
+        line-height: 12px;
+        color: $color-default-white;
+        margin-bottom: 8px;
+        opacity: 0.7;
+        font-weight: 500;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .b {
+        font-family: $font-gilroy;
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 20px;
+        opacity: 1;
+        color: $color-default-white;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -16,6 +16,7 @@
 /*
   Components
 */
+@import './components/container';
 @import './components/footer';
 @import './components/button';
 @import './components/link';
@@ -25,11 +26,12 @@
 /*
   Layout
 */
-@import './layout/page';
 @import './layout/general';
+@import './layout/page';
 
 /*
   sections
 */
-
 @import './sections/slider';
+@import './sections/works';
+@import './sections/contact';

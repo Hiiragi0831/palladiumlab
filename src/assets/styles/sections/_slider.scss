@@ -70,6 +70,7 @@
   &__item {
     width: calc(100%/4);
     font-family: $font-gilroy;
+    font-weight: 800;
     font-size: 20px;
     line-height: 25px;
     color: $color-default-white;
@@ -79,6 +80,7 @@
     border-bottom: 1px solid rgba($color-default-white, 0.3);
     border-top: 1px solid rgba($color-default-white, 0.3);
     position: relative;
+    transition: background-color $tf-300;
 
     &:not(:first-child) {
       border-left: 1px solid rgba($color-default-white, 0.3);
@@ -116,6 +118,7 @@
 
     &-title {
       font-family: $font-gilroy;
+      font-weight: 800;
       color: $color-default-white;
       font-size: 20px;
       line-height: 24px;

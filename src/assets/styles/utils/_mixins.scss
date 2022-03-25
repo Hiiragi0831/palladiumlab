@@ -1,20 +1,5 @@
 /* src/assets/styles/utils/_mixins.scss  */
 
-@mixin isFlex($align: center, $justify: center, $direction: row, $wrap: wrap) {
-  display: flex;
-  align-items: $align;
-  justify-content: $justify;
-  flex-direction: $direction;
-  flex-wrap: $wrap;
-}
-
-@mixin bgImage($url, $repeat: no-repeat, $position: center, $size: initial) {
-  background-image: url($url);
-  background-repeat: $repeat;
-  background-position: $position;
-  background-size: $size;
-}
-
 @mixin sliderItemColor($color, $block-name) {
   &:hover {
     background-color: $color;
@@ -35,7 +20,7 @@
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     border: 1px solid $color;
-    transition: clip-path 180ms ease, left 900ms ease;
+    transition: clip-path 180ms ease, left $tf-900;
 
     &:nth-child(1) {
       clip-path: polygon(50% 50%, 0 50%, 0 50%);

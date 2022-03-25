@@ -38,6 +38,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-style: normal;
   color: $color-dark;
   font-weight: 800;
+
+  span {
+    color: $color-transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: $color-dark;
+  }
 }
 
 p {
@@ -53,6 +59,10 @@ p {
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+sub, sup {
+  font-size: 8.5px;
 }
 
 a {

@@ -4,7 +4,7 @@
   &__circle {
     stroke-dasharray: calc(19.5*2*3.14);
     stroke-dashoffset: calc(19.5*2*3.14);
-    transition: stroke-dashoffset 900ms ease;
+    transition: stroke-dashoffset $tf-900;
   }
   &:hover {
     #{$block-name}__circle {

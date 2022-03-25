@@ -1,0 +1,33 @@
+
+.container  {
+  width: calc(100% - 30px);
+  margin: 0 auto;
+}
+
+@media (min-width: $vp-576){
+  .container  {
+    width: calc(100% - 140px - 30px);
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $vp-768){
+  .container  {
+    width: calc(100% - 140px - 30px);
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $vp-992) {
+  .container  {
+    width: calc(100% - 140px - 30px);
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: $vp-1200){
+  .container  {
+    width: 1100px;
+    margin: 0 auto;
+  }
+}

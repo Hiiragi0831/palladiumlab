@@ -8,6 +8,7 @@ $color-default-white:               #ffffff;
 $color-transparent:                 rgba(255, 255, 255, 0);
 $color-dark:                        #222222;
 $color-grey:                        #EBEBEB;
+$color-grey-two:                    #909090;
 $color-primary:                     #C6876D;
 $color-red:                         #EB5757;
 $color-green:                       #219653;
@@ -23,16 +24,12 @@ $vp-768:                            767.98px;
 $vp-992:                            991.98px;
 $vp-1200:                           1199.98px;
 $vp-1400:                           1399.98px;
-$vp-1700:                           1699.98px;
 
 //Animation
 // ---------------------------------
 $tf-default:                        ease 150ms;
 $tf-300:                            ease 300ms;
-$tf-500:                            ease 500ms;
-$tf-800:                            ease 800ms;
-$tf-1000:                           ease 1000ms;
-$tf-line:                           ease-in-out 800ms;
+$tf-900:                            ease 900ms;
 
 //Fonts
 // ---------------------------------

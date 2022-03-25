@@ -1,0 +1,146 @@
+.contact {
+  margin-bottom: 136px;
+
+  &__row {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 15px;
+    margin-left: 15px;
+    width: calc(100% / 3);
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      min-width: 370px;
+    }
+  }
+
+  &__child {
+    margin-bottom: 48px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__head {
+    font-family: $font-gilroy;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  &__social {
+    display: flex;
+
+    &-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+      background-color: $color-dark;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__form {
+    margin-top: 25px;
+
+    &-label {
+      position: relative;
+      display: flex;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &-title {
+      position:absolute;
+      top: 1px;
+      font-weight: 500;
+      left:0;
+      font-size: 9px;
+      line-height: 12px;
+    }
+
+    &-input {
+      width: 100%;
+      padding: 12.5px 50px 3px 0;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid $color-grey;
+      transition: border-bottom $tf-300;
+      font-size: 13px;
+      line-height: 24px;
+
+      &:focus-within {
+        border-bottom-color: $color-dark;
+      }
+    }
+
+    &-icons {
+      display: flex;
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-30%);
+
+      &-clip, &-close, &-check {
+        margin-left: 10px;
+        display: none;
+      }
+
+      &-clip {
+        display: block;
+      }
+
+      &-close {
+
+      }
+
+      &-check {
+
+      }
+    }
+
+    &-error {
+      position: absolute;
+      bottom: -15px;
+      font-size: 9px;
+      line-height: 12px;
+      color: $color-red;
+      font-weight: 500;
+      display: none;
+    }
+
+    &-personal {
+      margin-bottom: 30px;
+
+      p {
+        font-size: 9px;
+        line-height: 12px;
+        font-weight: 500;
+        color: $color-grey-two;
+      }
+
+      a {
+        font-size: 9px;
+        line-height: 12px;
+        color: $color-dark;
+      }
+    }
+  }
+}

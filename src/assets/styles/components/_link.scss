@@ -2,6 +2,15 @@
 
 .link {
   font-family: $font-gilroy;
-  font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-dark;
+  border-bottom: 1px dotted $color-dark;
+  transition: color $tf-300, border-bottom-color $tf-300;
+
+  &:hover {
+    color: $color-primary;
+    border-color: $color-primary;
+  }
 }
