@@ -123,3 +123,22 @@
     justify-content: center;
   }
 }
+
+
+@media (max-width: $vp-768){
+  .works {
+    &__examples {
+      grid-template-rows: repeat(8, 270px);
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "example1"
+        "example2"
+        "example3"
+        "example4"
+        "example5"
+        "example6"
+        "example7"
+        "example8";
+    }
+  }
+}

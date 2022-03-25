@@ -61,6 +61,14 @@ p {
   }
 }
 
+b, strong {
+  font-family: $font-gilroy;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 sub, sup {
   font-size: 8.5px;
 }

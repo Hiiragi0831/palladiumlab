@@ -1,5 +1,59 @@
 /* src/assets/styles/components/_footer.scss  */
 
 .footer {
+  border-top: 1.5px solid $color-dark;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+
+  &__item {
+    p {
+      font-size: 13px;
+      line-height: 24px;
+      color: $color-dark;
+    }
+  }
+
+  &__link {
+    font-family: $font-gilroy;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    color: $color-dark;
+    line-height: 20px;
+    border-bottom: none;
+  }
+}
+
+@media (min-width: $vp-320){
+  .footer {
+    flex-direction: column;
+
+    &__item {
+     margin-bottom: 15px;
+    }
+  }
+}
+
+@media (min-width: $vp-768){
+  .footer {
+    flex-direction: row;
+
+    &__item {
+      margin-bottom: 0;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $vp-992) {
+
+}
+
+@media (min-width: $vp-1200){
 
 }
