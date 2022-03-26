@@ -100,3 +100,17 @@ li {
   font-size: 14px;
   line-height: 20px;
 }
+
+@media (max-width: $vp-768) {
+  .h1, h1 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: $vp-576) {
+  .h1, h1 {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+}

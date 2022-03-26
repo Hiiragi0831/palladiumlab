@@ -24,11 +24,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: none;
+      display: block;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity $tf-300;
     }
 
     &-active {
-      display: block!important;
+      visibility: visible!important;
+      opacity: 1!important;
     }
   }
 
@@ -46,11 +51,19 @@
 
   &__title {
     margin-bottom: 48px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity $tf-300;
 
     span {
       color: $color-transparent;
       -webkit-text-stroke-width: 1.5px;
       -webkit-text-stroke-color: $color-dark;
+    }
+
+    &-active {
+      visibility: visible!important;
+      opacity: 1!important;
     }
   }
 

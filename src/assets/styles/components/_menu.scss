@@ -24,6 +24,7 @@
   &__item {
     line-height: 85px;
     position: relative;
+    margin: 0 25px;
 
     &:before {
       position: absolute;
@@ -33,10 +34,6 @@
       bottom: -1px;
       background-color: $color-grey;
       transition: background-color $tf-300;
-    }
-
-    &:not(:first-child) {
-      margin-left: 50px;
     }
 
     &:hover, &-active{
@@ -123,6 +120,24 @@
           fill: $color-primary;
         }
       }
+    }
+  }
+}
+
+@media (max-width: $vp-992) {
+  .menu {
+    &__item {
+      margin: 0 15px;
+    }
+  }
+}
+
+@media (max-width: $vp-768) {
+  .menu {
+    height: 85px;
+
+    &__list {
+      display: none;
     }
   }
 }
