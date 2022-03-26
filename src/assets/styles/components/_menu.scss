@@ -122,6 +122,71 @@
       }
     }
   }
+
+  &-transparent {
+    background-color: $color-transparent;
+    border-bottom: 1px solid rgba($color-default-white, 0.3);
+
+    #{$block-name}__item {
+      &:before {
+        background-color: $color-transparent;
+      }
+
+      &:hover, &-active{
+        &:before {
+          background-color: $color-default-white;
+        }
+
+        #{$block-name}__link {
+          color: $color-default-white;
+        }
+      }
+    }
+
+    #{$block-name}__link {
+      color: rgba($color-default-white, 0.7);
+    }
+
+    #{$block-name}__logo {
+      svg {
+        path {
+          fill: $color-default-white;
+        }
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: $color-primary;
+          }
+        }
+      }
+    }
+
+    #{$block-name}__icon {
+      svg {
+        path {
+          fill: $color-default-white;
+        }
+      }
+
+      &-right {
+        border-left: 1px solid rgba($color-default-white, 0.3);
+      }
+
+      &-left {
+        border-right: 1px solid rgba($color-default-white, 0.3);
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: $color-primary;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $vp-992) {

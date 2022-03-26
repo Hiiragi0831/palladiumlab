@@ -15,7 +15,6 @@
     content: " ";
     width: 25px;
     height: 1px;
-    background-color: $color-dark;
     left: -12.5px;
     top: 50%;
   }
@@ -24,5 +23,19 @@
     color: $color-dark;
     border: 1px solid rgba($color-dark, 0.3);
     @include btnHover($color-dark);
+
+    &:before {
+      background-color: $color-dark;
+    }
+  }
+
+  &__white {
+    color: $color-default-white;
+    border: 1px solid rgba($color-default-white, 0.3);
+    @include btnHover($color-default-white);
+
+    &:before {
+      background-color: $color-default-white;
+    }
   }
 }

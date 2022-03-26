@@ -18,6 +18,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba($color-default-black, 0.3);
+      z-index: 1;
     }
 
     img {
@@ -47,11 +48,26 @@
     flex-direction: column;
     background-color: $color-default-white;
     z-index: 1;
+
+    &-transparent {
+      background-color: $color-transparent;
+
+      #{$block-name}__title {
+        .h1 {
+          color: $color_default-white;
+        }
+
+        span {
+          -webkit-text-stroke-color: $color_default-white;
+        }
+      }
+    }
   }
 
   &__title {
     margin-bottom: 48px;
     visibility: hidden;
+    display: none;
     opacity: 0;
     transition: opacity $tf-300;
 
@@ -62,6 +78,7 @@
     }
 
     &-active {
+      display: block;
       visibility: visible!important;
       opacity: 1!important;
     }

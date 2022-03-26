@@ -15,7 +15,7 @@ block content
       img(src=require('images/slider/slide_02.jpg') data-img="block-2")
       img(src=require('images/slider/slide_03.jpg') data-img="block-3")
       img(src=require('images/slider/slide_04.jpg') data-img="block-4")
-    .slider__box
+    .slider__box.slider__box-transparent
       .slider__title.slider__title-active(data-title="block-0")
         p.h1
           | Ремонт#{' '}
@@ -27,7 +27,19 @@ block content
         p.h1 Услуги по ремонту
         p.h1
           span в Москве и Московской области
-      a.btn.btn__black(href="#") Оставить заявку
+      .slider__title(data-title="block-2")
+        p.h1 Виды работ по ремонту
+        p.h1
+          span в Москве и Московской области
+      .slider__title(data-title="block-3")
+        p.h1 Дизайн интерьера
+        p.h1
+          span в Москве и Московской области
+      .slider__title(data-title="block-4")
+        p.h1 Ремонт помещений
+        p.h1
+          span в Москве и Московской области
+      a.btn.btn__black#button-slider(href="#") Оставить заявку
         span
         span
         span
