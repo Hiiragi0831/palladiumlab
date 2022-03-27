@@ -10,12 +10,12 @@ block manifestBrowserconfigFiles
 block content
   section.slider#slider-main
     .slider__bg
-      img.slider__bg-active(src=require('images/slider/slide_00.jpg') data-img="block-0")
-      img(src=require('images/slider/slide_01.jpg') data-img="block-1")
-      img(src=require('images/slider/slide_02.jpg') data-img="block-2")
-      img(src=require('images/slider/slide_03.jpg') data-img="block-3")
-      img(src=require('images/slider/slide_04.jpg') data-img="block-4")
-    .slider__box.slider__box-transparent
+      img.slider__image.slider__image--active(src=require('images/slider/slide_00.jpg') data-img="block-0")
+      img.slider__image(src=require('images/slider/slide_01.jpg') data-img="block-1")
+      img.slider__image(src=require('images/slider/slide_02.jpg') data-img="block-2")
+      img.slider__image(src=require('images/slider/slide_03.jpg') data-img="block-3")
+      img.slider__image(src=require('images/slider/slide_04.jpg') data-img="block-4")
+    .slider__box
       .slider__title.slider__title-active(data-title="block-0")
         p.h1
           | Ремонт#{' '}
@@ -39,7 +39,7 @@ block content
         p.h1 Ремонт помещений
         p.h1
           span в Москве и Московской области
-      a.btn.btn__black#button-slider(href="#") Оставить заявку
+      a.btn#button-slider(href="#") Оставить заявку
         span
         span
         span
@@ -99,7 +99,8 @@ block content
           p.contact__text Москва, ул. Уличная, д. 1, оф. 1
         .contact__child
           p.contact__head E-mail
-          p.contact__text company@company.ru
+          p.contact__text
+            a(href="mailto:company@company.ru") company@company.ru
         .contact__child
           p.contact__head Социальные сети
           .contact__social
@@ -113,7 +114,8 @@ block content
           p.contact__text!="Пн-Вт: 10<sup>00</sup> — 19<sup>00</sup>; Сб-Вс: 10<sup>00</sup> — 15<sup>00</sup>"
         .contact__child
           p.contact__head Телефон
-          p.contact__text 8 (800) 900-00-00
+          p.contact__text
+            a(href="tel:8 (800) 900-00-00") 8 (800) 900-00-00
       .contact__item
         p.contact__head Остались вопросы?
         form.contact__form

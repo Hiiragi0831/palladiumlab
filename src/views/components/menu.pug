@@ -1,7 +1,25 @@
-nav.menu.menu-transparent
-  a.menu__icon.menu__icon-left(href="#")
+nav.menu#menu
+  .menu__icon.menu__icon-map
     +icon-map
-  .menu__midle
+    .menu__map
+      p
+        span Адрес:#{' '}
+        | Москва, ул. Уличная, д. 1, оф. 1
+      p
+        span Режим работы офиса:#{' '}
+        | Пн-Вт: 1000 — 1900; Сб-Вс: 1000 — 1500
+  .menu__icon.menu__icon-phone
+    +icon-phone
+    .menu__phone
+      p
+        a(href="tel:8 (800) 900-00-00") 8 (800) 900-00-00
+      a.btn.btn__black(href="#") Заказать звонок
+        span
+        span
+        span
+        span
+        span
+  .menu__middle
     ul.menu__list.ml-auto
       li.menu__item.menu__item-active
         a.menu__link(href='/') Главная
@@ -18,5 +36,3 @@ nav.menu.menu-transparent
         a.menu__link(href='/') Портфолио
       li.menu__item
         a.menu__link(href='/') Контакты
-  a.menu__icon.menu__icon-right(href="#")
-    +icon-phone
