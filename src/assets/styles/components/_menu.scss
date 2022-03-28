@@ -112,6 +112,20 @@
         }
       }
     }
+
+    &-burger {
+      border-left: 1px solid $color-grey;
+      order: 2;
+      cursor: pointer;
+      display: none;
+    }
+
+    &-contact {
+      border-right: 1px solid $color-grey;
+      order: 0;
+      cursor: pointer;
+      display: none;
+    }
   }
 
   &__middle {
@@ -278,12 +292,11 @@
         }
       }
 
-      &-phone {
+      &-phone,&-burger {
         border-left: 1px solid rgba($color-default-white, 0.3);
-
       }
 
-      &-map {
+      &-map, &-contact {
         border-right: 1px solid rgba($color-default-white, 0.3);
       }
 
@@ -296,12 +309,89 @@
       }
     }
   }
+
+  &__mobile {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    &-list, &-contact {
+      position: absolute;
+      top: 86px;
+      height: calc(100vh - 86px);
+      width: 100%;
+      background-color: $color-default-white;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity $tf-300, visibility $tf-300;
+    }
+
+    &-list--visible, &-contact--visible {
+      visibility: visible;
+      opacity: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    &-contact {
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      p {
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-default-black;
+        font-family: $font-gilroy;
+        font-weight: 800;
+
+        span {
+          color: $color-primary;
+        }
+
+        a {
+          font-family: $font-gilroy;
+          font-weight: 800;
+          color: $color-default-black;
+          font-size: 24px;
+        }
+      }
+
+      .btn {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-item {
+      border-bottom: 1px solid $color-grey;
+      text-align: center;
+    }
+
+    &-link {
+      width: 100%;
+      padding: 15px;
+      display: block;
+      color: $color-default-black;
+    }
+
+    &-burger {
+      display: block;
+    }
+
+    &-close {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: $vp-992) {
   .menu {
     &__item {
-      margin: 0 15px;
+      margin: 0 13px;
     }
   }
 }
@@ -310,8 +400,12 @@
   .menu {
     height: 85px;
 
-    &__list {
+    &__list, &__icon-map, &__icon-phone {
       display: none;
+    }
+
+    &__icon-burger, &__icon-contact {
+      display: flex;
     }
   }
 }

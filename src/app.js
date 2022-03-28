@@ -3,12 +3,6 @@
 // Styles
 import 'styles/_app.scss'
 
-$(function() {
-  console.log('Ready!')
-
-  require('scripts/demo')
-})
-
 let sliderItems = document.querySelector('#slider-main');
 
 if (sliderItems) {
@@ -79,4 +73,58 @@ if (sliderItems) {
     currentElem = null;
     currentImg = null;
   };
+}
+
+function openMenu () {
+  document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-burger').classList.toggle('display-none');
+  document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-close').classList.toggle('display-flex');
+  document.querySelector('.menu__mobile-list').classList.toggle('menu__mobile-list--visible');
+  document.querySelector('body').classList.toggle('overflow-hidden')
+}
+
+function openContact () {
+  document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-phone').classList.toggle('display-none');
+  document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-close').classList.toggle('display-flex');
+  document.querySelector('.menu__mobile-contact').classList.toggle('menu__mobile-contact--visible');
+  document.querySelector('body').classList.toggle('overflow-hidden')
+}
+
+function resizeEventListener() {
+  if (document.documentElement.clientWidth <= 767) {
+    const menu = document.querySelector('#menu');
+    menu.querySelector('.menu__icon-burger').addEventListener('click', openMenu);
+    menu.querySelector('.menu__icon-contact').addEventListener('click', openContact);
+  }
+}
+
+window.onload = resizeEventListener;
+window.addEventListener('resize', resizeEventListener);
+
+function getExtension(file_name){
+  return file_name.split('.').reverse()[0];
+}
+
+document.querySelector('#file-upload').onchange = function() {
+  for (let i = 0; i < this.files.length; i++) {
+
+    let ext = this.value.match(/\.([^\.]+)$/)[1];
+
+    switch (ext) {
+      case 'jpg':
+      case 'png':
+        console.log('Images');
+        break;
+      case 'pdf':
+      case 'doc':
+      case 'docx':
+        console.log('Document');
+        break;
+      default:
+        console.log('Not Allowed');
+        this.value = '';
+    }
+
+    console.log(this.files[i].type);
+    console.log(getExtension(this.files[i].name));
+  }
 }

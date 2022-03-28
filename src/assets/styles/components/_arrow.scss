@@ -5,6 +5,8 @@
     stroke-dasharray: calc(19.5*2*3.14);
     stroke-dashoffset: calc(19.5*2*3.14);
     transition: stroke-dashoffset $tf-900;
+    transform-origin: center center;
+    transform: rotate(-90deg);
   }
 
   &:hover {

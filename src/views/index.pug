@@ -39,7 +39,7 @@ block content
         p.h1 Ремонт помещений
         p.h1
           span в Москве и Московской области
-      a.btn#button-slider(href="#") Оставить заявку
+      a.btn(href="#") Оставить заявку
         span
         span
         span
@@ -47,26 +47,30 @@ block content
         span
     .slider__body
       .slider__items
-        a.slider__item.slider__item-red.slider__item-active(href="#" data-item="block-1") Услуги по ремонту
+        .slider__item.slider__item-red.slider__item-active(data-item="block-1") Услуги по ремонту
           .slider__item-body
             p.slider__item-title Услуги по ремонту
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            +arrow-right
-        a.slider__item.slider__item-green(href="#" data-item="block-2") Виды работ
+            a(href="#")
+              +arrow-right
+        .slider__item.slider__item-green(data-item="block-2") Виды работ
           .slider__item-body
             p.slider__item-title Виды работ
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            +arrow-right
-        a.slider__item.slider__item-blue(href="#" data-item="block-3") Дизайн интерьера
+            a(href="#")
+              +arrow-right
+        .slider__item.slider__item-blue(data-item="block-3") Дизайн интерьера
           .slider__item-body
             p.slider__item-title Дизайн интерьера
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            +arrow-right
-        a.slider__item.slider__item-purple(href="#" data-item="block-4") Ремонт помещений
+            a(href="#")
+              +arrow-right
+        .slider__item.slider__item-purple(data-item="block-4") Ремонт помещений
           .slider__item-body
             p.slider__item-title Ремонт помещений
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            +arrow-right
+            a(href="#")
+              +arrow-right
       a.slider__arrow(href="#")
         +arrow-down
   section.container.page.works#works-main
@@ -124,23 +128,42 @@ block content
             input.contact__form-input(placeholder="Иван Иванов" type="text")
             span.contact__form-error Error Message
             .contact__form-icons
-              +icon-close
-              +icon-check
+              .contact__form-icons-close
+                +icon-close
+              .contact__form-icons-check
+                +icon-check
           label.contact__form-label
             span.contact__form-title Телефон / E-mail
             input.contact__form-input(placeholder="example@example.com" type="email")
             span.contact__form-error Error Message
             .contact__form-icons
-              +icon-close
-              +icon-check
+              .contact__form-icons-close
+                +icon-close
+              .contact__form-icons-check
+                +icon-check
           label.contact__form-label
             span.contact__form-title Ваше сообщение
             input.contact__form-input(placeholder="Текст обращения" type="text")
             span.contact__form-error Error Message
             .contact__form-icons
-              +icon-clip
-              +icon-close
-              +icon-check
+              .contact__form-icons-clip
+                +icon-clip
+              .contact__form-icons-close
+                +icon-close
+              .contact__form-icons-check
+                +icon-check
+          .contact__form-file
+            .contact__form-box
+              .contact__form-file-item
+                img(src=require('images/works/work_05.jpg'))
+              .contact__form-file-item
+                p pdf
+              .contact__form-file-label
+                label(for="file-upload")
+                  .contact__form-file-add
+                    svg(width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                      path(fill-rule='evenodd' clip-rule='evenodd' d='M4.25 4.25V0H5.75V4.25H10V5.75H5.75V10H4.25V5.75H0V4.25H4.25Z' fill='white')
+                input(id="file-upload" type="file" multiple accept=".pdf, .jpg, .png, .docx, .doc")
           .contact__form-personal
             p Нажимая на кнопку «Получить консультацию», вы соглашаетесь
               br

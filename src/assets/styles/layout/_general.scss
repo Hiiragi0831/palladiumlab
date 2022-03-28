@@ -101,6 +101,18 @@ li {
   line-height: 20px;
 }
 
+.display-flex {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 @media (max-width: $vp-768) {
   .h1, h1 {
     font-size: 48px;

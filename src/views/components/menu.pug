@@ -5,9 +5,7 @@ nav.menu#menu
       p
         span Адрес:#{' '}
         | Москва, ул. Уличная, д. 1, оф. 1
-      p
-        span Режим работы офиса:#{' '}
-        | Пн-Вт: 1000 — 1900; Сб-Вс: 1000 — 1500
+      p!="<span>Режим работы офиса:</span> Пн-Вт: 10<sup>00</sup> — 19<sup>00</sup>; Сб-Вс: 10<sup>00</sup>"
   .menu__icon.menu__icon-phone
     +icon-phone
     .menu__phone
@@ -19,6 +17,12 @@ nav.menu#menu
         span
         span
         span
+  .menu__icon.menu__icon-contact
+    +icon-phone("menu__mobile-phone")
+    +icon-menu-close
+  .menu__icon.menu__icon-burger
+    +icon-menu
+    +icon-menu-close
   .menu__middle
     ul.menu__list.ml-auto
       li.menu__item.menu__item-active
@@ -36,3 +40,30 @@ nav.menu#menu
         a.menu__link(href='/') Портфолио
       li.menu__item
         a.menu__link(href='/') Контакты
+  .menu__mobile
+    ul.menu__mobile-list
+      li.menu__mobile-item
+        a.menu__mobile-link(href='/') Главная
+      li.menu__mobile-item
+        a.menu__mobile-link(href='/') О компании
+      li.menu__mobile-item
+        a.menu__mobile-link(href='/') Услуги
+      li.menu__mobile-item
+        a.menu__mobile-link(href='/') Цены
+      li.menu__mobile-item
+        a.menu__mobile-link(href='/') Портфолио
+      li.menu__mobile-item
+        a.menu__mobile-link(href='/') Контакты
+    .menu__mobile-contact
+      p
+        a(href="tel:8 (800) 900-00-00") 8 (800) 900-00-00
+      a.btn.btn__black(href="#") Заказать звонок
+        span
+        span
+        span
+        span
+        span
+      p
+        span Адрес:#{' '}
+        | Москва, ул. Уличная, д. 1, оф. 1
+      p!="<span>Режим работы офиса:</span> Пн-Вт: 10<sup>00</sup> — 19<sup>00</sup>; Сб-Вс: 10<sup>00</sup>"
