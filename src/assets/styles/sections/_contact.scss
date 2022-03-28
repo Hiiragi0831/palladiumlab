@@ -1,4 +1,6 @@
 .contact {
+  $block-name: &; // #{$block-name}__element
+
   margin-bottom: 136px;
 
   &__row {
@@ -61,6 +63,33 @@
       width: 100%;
       margin-bottom: 30px;
       flex-direction: column;
+
+      &--error {
+        #{$block-name}__form-input {
+          border-bottom: 1px solid $color-red;
+          color: $color-red;
+        }
+        #{$block-name}__form-icons-close {
+          display: block;
+        }
+      }
+
+      &--success {
+        #{$block-name}__form-input {
+          border-bottom: 1px solid $color-green;
+          color: $color-green;
+        }
+        #{$block-name}__form-icons-check {
+          display: block;
+        }
+      }
+
+      &--filled {
+        #{$block-name}__form-input {
+          border-bottom: 1px solid $color-dark;
+          color: $color-dark;
+        }
+      }
     }
 
     &-title {
@@ -102,6 +131,7 @@
 
       &-clip {
         display: block;
+        cursor: pointer;
       }
     }
 
@@ -152,7 +182,7 @@
 
     &-file {
       position: relative;
-      display: flex;
+      display: none;
       justify-content: flex-end;
       margin-top: -9px;
       margin-right: 20px;

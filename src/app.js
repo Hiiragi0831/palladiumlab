@@ -3,10 +3,11 @@
 // Styles
 import 'styles/_app.scss'
 
+//////////////////////////////////
+// Hover для главного экрана
 let sliderItems = document.querySelector('#slider-main');
 
 if (sliderItems) {
-  // Hover для главного экрана
   let currentElem = null;
   let currentImg = null;
   let currentTitle = null;
@@ -75,36 +76,75 @@ if (sliderItems) {
   };
 }
 
-function openMenu () {
-  document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-burger').classList.toggle('display-none');
-  document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-close').classList.toggle('display-flex');
-  document.querySelector('.menu__mobile-list').classList.toggle('menu__mobile-list--visible');
-  document.querySelector('body').classList.toggle('overflow-hidden')
-}
-
-function openContact () {
-  document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-phone').classList.toggle('display-none');
-  document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-close').classList.toggle('display-flex');
-  document.querySelector('.menu__mobile-contact').classList.toggle('menu__mobile-contact--visible');
-  document.querySelector('body').classList.toggle('overflow-hidden')
-}
-
-function resizeEventListener() {
+//////////////////////////////////
+// Мобильное меню
+const resizeEventListener = () => {
   if (document.documentElement.clientWidth <= 767) {
     const menu = document.querySelector('#menu');
-    menu.querySelector('.menu__icon-burger').addEventListener('click', openMenu);
-    menu.querySelector('.menu__icon-contact').addEventListener('click', openContact);
+    menu.querySelector('.menu__icon-burger').addEventListener('click', function () {
+      document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-burger').classList.toggle('display-none');
+      document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-close').classList.toggle('display-flex');
+      document.querySelector('.menu__mobile-list').classList.toggle('menu__mobile-list--visible');
+      document.querySelector('body').classList.toggle('overflow-hidden');
+    });
+    menu.querySelector('.menu__icon-contact').addEventListener('click', function () {
+      document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-phone').classList.toggle('display-none');
+      document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-close').classList.toggle('display-flex');
+      document.querySelector('.menu__mobile-contact').classList.toggle('menu__mobile-contact--visible');
+      document.querySelector('body').classList.toggle('overflow-hidden');
+    });
   }
 }
 
 window.onload = resizeEventListener;
 window.addEventListener('resize', resizeEventListener);
 
-function getExtension(file_name){
-  return file_name.split('.').reverse()[0];
+//////////////////////////////////
+// форма загрузки
+
+document.querySelector('#file').addEventListener('click', function () {
+  document.querySelector('#file-form').classList.toggle('display-flex');
+});
+
+const getExtension = (file_name) => {
+  let type = file_name.split('.').reverse()[0];
+  return type.substring(0, 3);
 }
 
-document.querySelector('#file-upload').onchange = function() {
+const RenderPosition = {
+  BEFOREBEGIN: 'beforebegin',
+  AFTERBEGIN: 'afterbegin',
+  BEFOREEND: 'beforeend',
+  AFTEREND: 'afterend',
+};
+
+const renderTemplate = (container, template, place) => {
+  container.insertAdjacentHTML(place, template);
+};
+
+const createFileTemplate = (text) => (
+  `<div class="contact__form-file-item">
+    <p>${text}</p>
+  </div>`
+);
+
+const createImgTemplate = (src) => (
+  `<div class="contact__form-file-item">
+    <img src="${src}"  alt=""/>
+  </div>`
+);
+
+const createFileItem = (fileType) => {
+  let box = document.querySelector('.contact__form-box');
+  renderTemplate(box, createFileTemplate(fileType), RenderPosition.AFTERBEGIN);
+}
+
+const createImgItem = (url) => {
+  let box = document.querySelector('.contact__form-box');
+  renderTemplate(box, createImgTemplate(url), RenderPosition.AFTERBEGIN);
+}
+
+document.querySelector('#file-upload').onchange = function(env) {
   for (let i = 0; i < this.files.length; i++) {
 
     let ext = this.value.match(/\.([^\.]+)$/)[1];
@@ -113,18 +153,33 @@ document.querySelector('#file-upload').onchange = function() {
       case 'jpg':
       case 'png':
         console.log('Images');
+        createImgItem(URL.createObjectURL(env.target.files[i]));
         break;
       case 'pdf':
       case 'doc':
       case 'docx':
+        createFileItem(getExtension(this.files[i].name));
         console.log('Document');
         break;
       default:
         console.log('Not Allowed');
         this.value = '';
     }
-
-    console.log(this.files[i].type);
-    console.log(getExtension(this.files[i].name));
   }
+}
+
+//////////////////////////////////
+// валидатор
+const label = document.querySelectorAll('.contact__form-label');
+const inputsEmail = document.querySelectorAll('input[type="email"]');
+console.log(label)
+console.log(inputsEmail)
+
+for (let i = 0; i < label.length; i++) {
+  label[i].addEventListener('input', () => {
+    const valueInput = label[i].querySelector('.contact__form-input').value;
+    console.log(valueInput)
+
+
+  });
 }

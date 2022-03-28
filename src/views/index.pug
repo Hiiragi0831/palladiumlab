@@ -125,7 +125,7 @@ block content
         form.contact__form
           label.contact__form-label
             span.contact__form-title Ваше имя
-            input.contact__form-input(placeholder="Иван Иванов" type="text")
+            input.contact__form-input(placeholder="Иван Иванов" type="text" required)
             span.contact__form-error Error Message
             .contact__form-icons
               .contact__form-icons-close
@@ -134,7 +134,7 @@ block content
                 +icon-check
           label.contact__form-label
             span.contact__form-title Телефон / E-mail
-            input.contact__form-input(placeholder="example@example.com" type="email")
+            input.contact__form-input(placeholder="example@example.com" type="email" required)
             span.contact__form-error Error Message
             .contact__form-icons
               .contact__form-icons-close
@@ -143,21 +143,17 @@ block content
                 +icon-check
           label.contact__form-label
             span.contact__form-title Ваше сообщение
-            input.contact__form-input(placeholder="Текст обращения" type="text")
+            input.contact__form-input(placeholder="Текст обращения" type="text" required)
             span.contact__form-error Error Message
             .contact__form-icons
-              .contact__form-icons-clip
+              .contact__form-icons-clip#file
                 +icon-clip
               .contact__form-icons-close
                 +icon-close
               .contact__form-icons-check
                 +icon-check
-          .contact__form-file
+          .contact__form-file#file-form
             .contact__form-box
-              .contact__form-file-item
-                img(src=require('images/works/work_05.jpg'))
-              .contact__form-file-item
-                p pdf
               .contact__form-file-label
                 label(for="file-upload")
                   .contact__form-file-add
