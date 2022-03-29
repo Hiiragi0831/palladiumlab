@@ -19,7 +19,7 @@ exports.pages = function (mode, folder = '') {
     if (view.split('')[1] === undefined)
       return false
 
-    const viewName = view.split('.')[0]
+    const viewName = view.split('')[0]
     const fileName = folder === '' ? `${viewName}/index.html` : `${folder}/${viewName}/index.html`
     const options = {
       minify: !isDevMode(mode),
