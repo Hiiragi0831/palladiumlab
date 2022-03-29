@@ -16,10 +16,10 @@ exports.pages = function (mode, folder = '') {
   var pages = []
 
   fs.readdirSync(viewsFolder).forEach(view => {
-    if (view.split('')[1] === undefined)
+    if (view.split('.')[1] === undefined)
       return false
 
-    const viewName = view.split('')[0]
+    const viewName = view.split('.')[0]
     const fileName = folder === '' ? `${viewName}/index.html` : `${folder}/${viewName}/index.html`
     const options = {
       minify: !isDevMode(mode),
