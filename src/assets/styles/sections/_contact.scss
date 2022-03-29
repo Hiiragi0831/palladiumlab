@@ -112,6 +112,7 @@
       transition: border-bottom $tf-300;
       font-size: 13px;
       line-height: 24px;
+      border-radius: 0;
 
       &:focus-within {
         border-bottom-color: $color-dark;

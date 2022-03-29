@@ -71,8 +71,9 @@ block content
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
             a(href="#!")
               +arrow-right
-      a.slider__arrow(href="#works-main")
+      a.slider__arrow(href='#works-main' data-scroll)
         +arrow-down
+
   section.container.page.works#works-main
     p.h1.page__title Примеры#{' '}
       span выполненных#{' '}

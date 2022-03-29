@@ -170,12 +170,6 @@ module.exports = (env) => {
         inject: 'body',
       }),
 
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.$': 'jquery',
-        'window.jQuery': 'jquery'
-      }),
       new WebpackNotifierPlugin({
         title: 'Your project'
       })

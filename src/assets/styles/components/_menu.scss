@@ -393,6 +393,16 @@
     &__item {
       margin: 0 13px;
     }
+
+    &__map {
+      flex-direction: column;
+
+      p {
+        border: none!important;
+        padding: 0!important;
+        margin: 0!important;
+      }
+    }
   }
 }
 

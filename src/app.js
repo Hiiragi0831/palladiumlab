@@ -2,7 +2,11 @@
 
 // Styles
 import 'styles/_app.scss'
+//////////////////////////////////
+// Плавная прокрутка
+import SmoothScroll from 'smooth-scroll';
 
+new SmoothScroll('a[href*="#"]');
 //////////////////////////////////
 // Hover для главного экрана
 let sliderItems = document.querySelector('#slider-main');
@@ -78,6 +82,7 @@ if (sliderItems) {
 
 //////////////////////////////////
 // Мобильное меню
+
 const resizeEventListener = () => {
   if (document.documentElement.clientWidth <= 767) {
     const menu = document.querySelector('#menu');
@@ -169,14 +174,7 @@ document.querySelector('#file-upload').onchange = function (env) {
 }
 
 //////////////////////////////////
-// валидатор
-
-// выход true/false
-const validateEmail = (email) => {
-  const re = /\S+@\S+\.\S+/;
-  return re.test(email);
-};
-
+// валидатор формы
 
 const form = document.querySelector('.contact__form');
 const label = form.querySelectorAll('.contact__form-label');
@@ -211,31 +209,24 @@ form.addEventListener('submit', (evn) => {
 
 });
 
-const filledField = () => {
-  for (let i = 0; i < label.length; i++) {
-    const input = label[i].querySelector('input');
-    input.addEventListener('input', () => {
-      if (input.value.length !== 0) {
-        label[i].classList.add('contact__form-label--filled');
-      } else {
-        label[i].classList.remove('contact__form-label--filled');
-      }
-    });
-  }
-
-  fileId.querySelector('input').addEventListener('input', () => {
-    if (fileId.querySelector('input').value.length !== 0 ) {
-      form.querySelector('#form-text').classList.add('contact__form-label--filled');
+for (let i = 0; i < label.length; i++) {
+  const input = label[i].querySelector('input');
+  input.addEventListener('input', () => {
+    if (input.value.length !== 0) {
+      label[i].classList.add('contact__form-label--filled');
     } else {
-      form.querySelector('#form-text').classList.remove('contact__form-label--filled');
+      label[i].classList.remove('contact__form-label--filled');
     }
   });
 }
 
-filledField();
-
-
-
+fileId.querySelector('input').addEventListener('input', () => {
+  if (fileId.querySelector('input').value.length !== 0 ) {
+    form.querySelector('#form-text').classList.add('contact__form-label--filled');
+  } else {
+    form.querySelector('#form-text').classList.remove('contact__form-label--filled');
+  }
+});
 
 const error = (label, textError) => {
   label.classList.remove('contact__form-label--filled');
