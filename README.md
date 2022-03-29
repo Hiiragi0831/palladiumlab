@@ -8,10 +8,6 @@ With this starter you can have clean URLs by removing the .html extension. For e
 - *website.com/blog*
 - *website.com/profile*
 
-## Demo
-
-🔗 https://webpack-starter.edgardorl.com/
-
 ## Technologies used
 
 - Templating: `Pug`
