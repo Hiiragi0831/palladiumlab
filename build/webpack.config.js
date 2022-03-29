@@ -31,7 +31,7 @@ module.exports = (env) => {
     },
     output: {
       publicPath: ASSET_PATH,
-      path: path.join(__dirname, '../docs'),
+      path: path.join(__dirname, '../dist'),
       filename: 'assets/js/[name].[contenthash:7].bundle.js'
     },
     devServer: {
