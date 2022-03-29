@@ -66,9 +66,10 @@
 
       &--error {
         #{$block-name}__form-input {
-          border-bottom: 1px solid $color-red;
+          border-bottom: 1px solid $color-red!important;
           color: $color-red;
         }
+
         #{$block-name}__form-icons-close {
           display: block;
         }
@@ -76,9 +77,10 @@
 
       &--success {
         #{$block-name}__form-input {
-          border-bottom: 1px solid $color-green;
+          border-bottom: 1px solid $color-green!important;
           color: $color-green;
         }
+
         #{$block-name}__form-icons-check {
           display: block;
         }

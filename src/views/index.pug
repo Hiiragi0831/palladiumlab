@@ -39,7 +39,7 @@ block content
         p.h1 Ремонт помещений
         p.h1
           span в Москве и Московской области
-      a.btn(href="#") Оставить заявку
+      a.btn(href="#!") Оставить заявку
         span
         span
         span
@@ -51,27 +51,27 @@ block content
           .slider__item-body
             p.slider__item-title Услуги по ремонту
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            a(href="#")
+            a(href="#!")
               +arrow-right
         .slider__item.slider__item-green(data-item="block-2") Виды работ
           .slider__item-body
             p.slider__item-title Виды работ
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            a(href="#")
+            a(href="#!")
               +arrow-right
         .slider__item.slider__item-blue(data-item="block-3") Дизайн интерьера
           .slider__item-body
             p.slider__item-title Дизайн интерьера
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            a(href="#")
+            a(href="#!")
               +arrow-right
         .slider__item.slider__item-purple(data-item="block-4") Ремонт помещений
           .slider__item-body
             p.slider__item-title Ремонт помещений
             p.slider__item-descr С другой стороны реализация намеченных плановых заданий требуют от нас анализа.
-            a(href="#")
+            a(href="#!")
               +arrow-right
-      a.slider__arrow(href="#")
+      a.slider__arrow(href="#works-main")
         +arrow-down
   section.container.page.works#works-main
     p.h1.page__title Примеры#{' '}
@@ -87,7 +87,7 @@ block content
       +works-item('Вторичка', require('images/works/work_07.jpg'))
       +works-item('Новостройка', require('images/works/work_08.jpg'))
     .works__button
-      a.btn.btn__black(href="#") Все проекты
+      a.btn.btn__black(href="#!") Все проекты
         span
         span
         span
@@ -122,28 +122,28 @@ block content
             a(href="tel:8 (800) 900-00-00") 8 (800) 900-00-00
       .contact__item
         p.contact__head Остались вопросы?
-        form.contact__form
-          label.contact__form-label
+        form.contact__form(novalidate)
+          label.contact__form-label#form-name(data-success="0")
             span.contact__form-title Ваше имя
-            input.contact__form-input(placeholder="Иван Иванов" type="text" required)
+            input.contact__form-input(placeholder="Иван Иванов" type="text")
             span.contact__form-error Error Message
             .contact__form-icons
               .contact__form-icons-close
                 +icon-close
               .contact__form-icons-check
                 +icon-check
-          label.contact__form-label
+          label.contact__form-label#form-feedback(data-success="0")
             span.contact__form-title Телефон / E-mail
-            input.contact__form-input(placeholder="example@example.com" type="email" required)
+            input.contact__form-input(placeholder="example@example.com" type="text")
             span.contact__form-error Error Message
             .contact__form-icons
               .contact__form-icons-close
                 +icon-close
               .contact__form-icons-check
                 +icon-check
-          label.contact__form-label
+          label.contact__form-label#form-text(data-success="0")
             span.contact__form-title Ваше сообщение
-            input.contact__form-input(placeholder="Текст обращения" type="text" required)
+            input.contact__form-input(placeholder="Текст обращения" type="text")
             span.contact__form-error Error Message
             .contact__form-icons
               .contact__form-icons-clip#file
@@ -152,7 +152,7 @@ block content
                 +icon-close
               .contact__form-icons-check
                 +icon-check
-          .contact__form-file#file-form
+          .contact__form-file#form-file
             .contact__form-box
               .contact__form-file-label
                 label(for="file-upload")
@@ -164,7 +164,7 @@ block content
             p Нажимая на кнопку «Получить консультацию», вы соглашаетесь
               br
               | на#{' '}
-              a.link(href="#") обработку персональных данных
+              a.link(href="#!") обработку персональных данных
           button.btn.btn__black(type="submit") Получить консультацию
             span
             span

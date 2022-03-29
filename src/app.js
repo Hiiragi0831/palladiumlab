@@ -16,7 +16,7 @@ if (sliderItems) {
   const defaultTitle = sliderItems.querySelector('[data-title="block-0"]');
   const menu = document.querySelector('#menu');
 
-  sliderItems.onmouseover = function(event) {
+  sliderItems.onmouseover = (event) => {
 
     // перед тем, как войти на следующий элемент, курсор всегда покидает предыдущий
     // если currentElem есть, то мы ещё не ушли с предыдущего item,
@@ -47,7 +47,7 @@ if (sliderItems) {
   };
 
 
-  sliderItems.onmouseout = function(event) {
+  sliderItems.onmouseout = (event) => {
     // если мы вне item, то игнорируем уход мыши
     // это какой-то переход внутри таблицы, но вне item,
     // например с item на другой item
@@ -81,13 +81,13 @@ if (sliderItems) {
 const resizeEventListener = () => {
   if (document.documentElement.clientWidth <= 767) {
     const menu = document.querySelector('#menu');
-    menu.querySelector('.menu__icon-burger').addEventListener('click', function () {
+    menu.querySelector('.menu__icon-burger').addEventListener('click', () => {
       document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-burger').classList.toggle('display-none');
       document.querySelector('.menu__icon-burger').querySelector('.menu__mobile-close').classList.toggle('display-flex');
       document.querySelector('.menu__mobile-list').classList.toggle('menu__mobile-list--visible');
       document.querySelector('body').classList.toggle('overflow-hidden');
     });
-    menu.querySelector('.menu__icon-contact').addEventListener('click', function () {
+    menu.querySelector('.menu__icon-contact').addEventListener('click', () => {
       document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-phone').classList.toggle('display-none');
       document.querySelector('.menu__icon-contact').querySelector('.menu__mobile-close').classList.toggle('display-flex');
       document.querySelector('.menu__mobile-contact').classList.toggle('menu__mobile-contact--visible');
@@ -103,7 +103,7 @@ window.addEventListener('resize', resizeEventListener);
 // форма загрузки
 
 document.querySelector('#file').addEventListener('click', function () {
-  document.querySelector('#file-form').classList.toggle('display-flex');
+  document.querySelector('#form-file').classList.toggle('display-flex');
 });
 
 const getExtension = (file_name) => {
@@ -144,7 +144,7 @@ const createImgItem = (url) => {
   renderTemplate(box, createImgTemplate(url), RenderPosition.AFTERBEGIN);
 }
 
-document.querySelector('#file-upload').onchange = function(env) {
+document.querySelector('#file-upload').onchange = function (env) {
   for (let i = 0; i < this.files.length; i++) {
 
     let ext = this.value.match(/\.([^\.]+)$/)[1];
@@ -170,16 +170,121 @@ document.querySelector('#file-upload').onchange = function(env) {
 
 //////////////////////////////////
 // валидатор
-const label = document.querySelectorAll('.contact__form-label');
-const inputsEmail = document.querySelectorAll('input[type="email"]');
-console.log(label)
-console.log(inputsEmail)
 
-for (let i = 0; i < label.length; i++) {
-  label[i].addEventListener('input', () => {
-    const valueInput = label[i].querySelector('.contact__form-input').value;
-    console.log(valueInput)
+// выход true/false
+const validateEmail = (email) => {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
 
 
+const form = document.querySelector('.contact__form');
+const label = form.querySelectorAll('.contact__form-label');
+const nameLabel = form.querySelector('#form-name');
+const feedbackLabel = form.querySelector('#form-feedback');
+const messageLabel = form.querySelector('#form-text');
+const fileId = form.querySelector('#form-file');
+
+form.addEventListener('submit', (evn) => {
+  inputValidate();
+
+  if (nameLabel.dataset.success === '1' && feedbackLabel.dataset.success === '1' && messageLabel.dataset.success === '1') {
+    nameLabel.classList.remove('contact__form-label--success');
+    feedbackLabel.classList.remove('contact__form-label--success');
+    messageLabel.classList.remove('contact__form-label--success');
+
+    nameLabel.querySelector('input').value = '';
+    feedbackLabel.querySelector('input').value = '';
+    messageLabel.querySelector('input').value = '';
+
+    nameLabel.dataset.success = '0';
+    feedbackLabel.dataset.success = '0';
+    messageLabel.dataset.success = '0';
+
+    fileId.querySelector('input').value = '';
+    fileId.querySelectorAll('.contact__form-file-item').forEach(item => item.remove())
+    fileId.classList.remove('display-flex');
+
+  } else {
+    evn.preventDefault();
+  }
+
+});
+
+const filledField = () => {
+  for (let i = 0; i < label.length; i++) {
+    const input = label[i].querySelector('input');
+    input.addEventListener('input', () => {
+      if (input.value.length !== 0) {
+        label[i].classList.add('contact__form-label--filled');
+      } else {
+        label[i].classList.remove('contact__form-label--filled');
+      }
+    });
+  }
+
+  fileId.querySelector('input').addEventListener('input', () => {
+    if (fileId.querySelector('input').value.length !== 0 ) {
+      form.querySelector('#form-text').classList.add('contact__form-label--filled');
+    } else {
+      form.querySelector('#form-text').classList.remove('contact__form-label--filled');
+    }
+  });
+}
+
+filledField();
+
+
+
+
+const error = (label, textError) => {
+  label.classList.remove('contact__form-label--filled');
+  label.classList.remove('contact__form-label--success');
+  label.classList.add('contact__form-label--error');
+  label.querySelector('.contact__form-error').style.display = 'block';
+  label.querySelector('.contact__form-error').innerText= textError;
+  label.dataset.success = '0';
+}
+
+const success = (label) => {
+  label.classList.remove('contact__form-label--filled');
+  label.classList.remove('contact__form-label--error');
+  label.classList.add('contact__form-label--success');
+  label.querySelector('.contact__form-error').style.display = 'none';
+  label.dataset.success = '1';
+}
+
+const verification = (label, errorText) => {
+  label.querySelector('input').value.length > 0 ? success(label) : error(label, errorText);
+
+  label.querySelector('input').addEventListener('input', () => {
+    label.querySelector('input').value.length > 0 ? success(label) : error(label, errorText);
+  });
+}
+
+const inputValidate = () => {
+  verification(nameLabel, 'Напишите имя');
+  verification(feedbackLabel, 'Напишите телефон или почту');
+
+  if (messageLabel.querySelector('input').value.length > 0 || fileId.querySelector('input').value.length > 0) {
+    success(messageLabel);
+  } else {
+    error(messageLabel, 'Напишите или прикрепите обращение');
+  }
+
+  fileId.querySelector('input').addEventListener('input', () => {
+    if (fileId.querySelector('input').value.length > 0 || messageLabel.querySelector('input').value.length > 0) {
+      success(messageLabel);
+    } else {
+      error(messageLabel, 'Напишите или прикрепите обращение');
+    }
+  });
+
+  messageLabel.querySelector('input').addEventListener('input', () => {
+    if (fileId.querySelector('input').value.length > 0 || messageLabel.querySelector('input').value.length > 0) {
+      success(messageLabel);
+    } else {
+      error(messageLabel, 'Напишите или прикрепите обращение');
+    }
   });
 }
